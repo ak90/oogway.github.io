@@ -2,6 +2,33 @@
 <html lang="en">
 <head>
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78296065-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-78296065-1');
+  </script>
+
+  <script>
+  /**
+  * Function that tracks a click on an outbound link in Analytics.
+  * This function takes a valid URL string as an argument, and uses that URL string
+  * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+  * using 'navigator.sendBeacon' in browser that support it.
+  */
+  var trackOutboundLink = function(url) {
+    gtag('event', 'click', {
+      'event_category': 'outbound',
+      'event_label': url,
+      'transport_type': 'beacon',
+      'event_callback': function(){document.location = url;}
+    });
+  }
+  </script>
+
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
@@ -39,26 +66,26 @@
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container-fluid">
-    <div class="row">      		
-      		<div class="col-sm-6">
-      			<div class="text-center"><img style="width: 200px; margin-top:40%" src="Assets/Oogway-website-logo-02.png"></div>
-      		</div>
+    <div class="row">         
+          <div class="col-sm-6">
+            <div class="text-center"><img style="width: 200px; margin-top:40%" src="Assets/Oogway-website-logo-02.png"></div>
+          </div>
 
-      		<div class="col-sm-6 text-center" style="text-align: left; margin-top: 10%; padding-left: 50px; padding-right: 60px">
-        		<h1>Hello, we are <br><span style="font-family: 'Raleway', sans-serif; font-weight: 500; color: green">Oogway Consulting</span></h1>
-        		<br>
-        		<h3>We work with organizations to help remove <u>techonlogy barriers</u> impeding their <u>exponential progress</u>.<br><br><h3> Our tools of trade consist of <ul>
-        		<li>Programming Expertise</li>
-        		<li>First Principles Approach</li>
-        		<li>Demonstrable Problem Solving Capabilities</li>
-        		</ul>
-        		</h3>
-        		<br>
-        		<br>
-        		<h3>We write about our experiences, learnings and projects on our <u><a href="http://blog.oogway.in" target="_blank">showcase page</a></u>. If you want to get in touch with us, please drop us a <u><a href="mailto:contact@oogway.in">mail</a></u>.</h3>
-      		</div>
-    	</div>
-  	</div>
+          <div class="col-sm-6 text-center" style="text-align: left; margin-top: 10%; padding-left: 50px; padding-right: 60px">
+            <h1>Hello, we are <br><span style="font-family: 'Raleway', sans-serif; font-weight: 500; color: green">Oogway Consulting</span></h1>
+            <br>
+            <h3>We work with organizations to help remove <u>techonlogy barriers</u> impeding their <u>exponential progress</u>.<br><br><h3> Our tools of trade consist of <ul>
+            <li>Programming Expertise</li>
+            <li>First Principles Approach</li>
+            <li>Demonstrable Problem Solving Capabilities</li>
+            </ul>
+            </h3>
+            <br>
+            <br>
+            <h3>We write about our experiences, learnings and projects on our <u><a href="http://blog.oogway.in" onclick="trackOutboundLink('showccase'); return false;" target="_blank">showcase page</a></u>. If you want to get in touch with us, please drop us a <u><a href="mailto:contact@oogway.in" onclick="trackOutboundLink('mailto:'); return false;">mail</a></u>.</h3>
+          </div>
+      </div>
+    </div>
   </div>
 
 <!-- End Document
